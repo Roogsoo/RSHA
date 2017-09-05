@@ -3,6 +3,6 @@
 # kasutaja lisamise skript
 echo -n "Sisesta kasutajanimi: "
 read kasutajanimi
-useradd -m $kasutajanimi
+useradd $kasutajanimi -m -s /bin/bash
 #ei lisa parooli
 passwd --delete $kasutajanimi

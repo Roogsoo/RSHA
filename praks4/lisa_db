@@ -1,0 +1,10 @@
+#!/bin/bash
+#nimi="$(whoami)"
+nimi=$1
+#echo "$nimi"
+pass=`pwgen -s 10 1 > pass`
+	mysql -e "CREATE DATABASE ${nimi}"
+	mysql -e "CREATE USER ${nimi}@localhost IDENTIFIED BY '${pass}';"
+	mysql -e "GRANT ALL PRIVILEGES ON * . * TO '${nimi}'@'localhost';"
+	mysql -e "FLUSH PRIVILEGES;"
+echo "username $nimi"
